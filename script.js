@@ -22,6 +22,8 @@ function submitfunction() {
         logintext.innerHTML = username.value
         logout.style.display = "inline"
         submit.style.display = "none"
+        formspan.style.display = "none"
+
     } else {
         logintext.innerHTML = "incorrect login"
     }
