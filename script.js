@@ -12,12 +12,14 @@ const Newregister = document.querySelector('[type="Newregister"]')
 
 const Newname = document.querySelector('[type="Newname"]');
 const Newpassword = document.querySelector('#newpassword');
-var users = ["Janne", "test", "anwar", "fest", "amanda", "fest"]
+var usernames = ["janne", "anwar", "fest"]
+var passwords = ["test", "fest", "fest"]
 
 var i = window.localStorage.getItem("logged in")
 
 function submitfunction() {
-    if (users.includes(username.value) && users.includes(password.value)) {
+    var pos = (usernames.indexOf(username.value))
+    if (usernames.includes(username.value) && password.value == passwords.at(pos)) {
         localStorage.setItem("logged in", "true")
         formspan.style.display = "none"
         logout.style.display = "inline"
@@ -27,7 +29,8 @@ function submitfunction() {
 
     }
     localStorage.setItem("username", username.value)
-    localStorage.setItem("users", users)
+    localStorage.setItem("usernames", usernames)
+    localStorage.setItem("passwords", passwords)
 }
 
 
@@ -50,9 +53,12 @@ function registerfunction() {
 }
 
 function newregisterfunction() {
-    users.push(Newname.value, Newpassword.value)
-    const f = [localStorage.getItem("users")]
-    f.push(Newname.value, Newpassword.value)
+    passwords.push(Newpassword.value)
+    usernames.push(Newname.value)
+    var storpasswords = [localStorage.getItem("usernames")]
+    var storusernames = [localStorage.getItem("passwords")]
+    storpasswords.push(Newpassword.value)
+    storusernames.push(Newpassword.value)
     logintext.innerHTML = "You have registered, " + Newname.value
     registerPage.style.transform = "translateY(1000%)"
     openreg = true;
