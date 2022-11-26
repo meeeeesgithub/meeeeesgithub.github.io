@@ -17,7 +17,7 @@ var users = ["Janne", "test", "anwar", "fest", "amanda", "fest"]
 var i = window.localStorage.getItem("logged in")
 
 function submitfunction() {
-    if (users.includes(username.value && password.value)) {
+    if (users.includes(username.value) && users.includes(password.value)) {
         localStorage.setItem("logged in", "true")
         formspan.style.display = "none"
         logout.style.display = "inline"
