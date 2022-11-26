@@ -12,7 +12,7 @@ const Newregister = document.querySelector('[type="Newregister"]')
 
 const Newname = document.querySelector('[type="Newname"]');
 const Newpassword = document.querySelector('#newpassword');
-var usernames = ["janne", "anwar", "fest"]
+var usernames = ["janne", "anwar", "amanda"]
 var passwords = ["test", "fest", "fest"]
 
 var i = window.localStorage.getItem("logged in")
