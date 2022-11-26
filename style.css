@@ -16,9 +16,28 @@ body {
 .register,
 .Login,
 .register>*,
-.Login>* {
+.Login>*,
+.register>*>*,
+.Login>*>* {
     margin: 2%;
     padding: 2%;
+}
+
+.loginform {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+button[type="logout"] {
+    display: none;
 }
 
 .register {
