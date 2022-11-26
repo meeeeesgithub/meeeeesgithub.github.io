@@ -19,22 +19,21 @@ var i = window.localStorage.getItem("logged in")
 function submitfunction() {
     if (users.includes(username.value && password.value)) {
         localStorage.setItem("logged in", "true")
-        logintext.innerHTML = username.value
-        logout.style.display = "inline"
-        submit.style.display = "none"
         formspan.style.display = "none"
-
+        logout.style.display = "inline"
+        logintext.innerHTML = username.value
     } else {
         logintext.innerHTML = "incorrect login"
+
     }
     localStorage.setItem("username", username.value)
     localStorage.setItem("users", users)
 }
-// function clearfunction() {
-//     localStorage.clear()
-// }
+
+
 if (i === "true") {
     formspan.style.display = "none"
+    logout.style.display = "inline"
     logintext.innerHTML = localStorage.getItem("username")
 }
 
@@ -64,6 +63,8 @@ function logoutfunction() {
     logout.style.display = "none"
     localStorage.setItem("logged in", "false")
     logintext.innerHTML = "logged out"
+    formspan.style.display = "inline"
+
 }
 
 logout.addEventListener('click', logoutfunction)
