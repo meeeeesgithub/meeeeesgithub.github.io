@@ -15,11 +15,20 @@ const Newpassword = document.querySelector('#newpassword');
 var usernames = ["janne", "anwar", "amanda"]
 var passwords = ["test", "fest", "fest"]
 
+if (localStorage.getItem("usernames") === null) {
+    localStorage.setItem("usernames", usernames)
+    localStorage.setItem("passwords", passwords)
+}
+
 var i = window.localStorage.getItem("logged in")
 
 function submitfunction() {
-    var pos = (usernames.indexOf(username.value))
-    if (usernames.includes(username.value) && password.value == passwords.at(pos)) {
+    var localusers = localStorage.getItem("usernames")
+    var localpasswords = localStorage.getItem("passwords")
+    var localsplitusers = localusers.split(',')
+    var localsplitpassword = localpasswords.split(',')
+    var pos = (localsplitusers.indexOf(username.value))
+    if (localsplitusers.includes(username.value) && password.value == localsplitpassword.at(pos)) {
         localStorage.setItem("logged in", "true")
         formspan.style.display = "none"
         logout.style.display = "inline"
@@ -29,8 +38,6 @@ function submitfunction() {
 
     }
     localStorage.setItem("username", username.value)
-    localStorage.setItem("usernames", usernames)
-    localStorage.setItem("passwords", passwords)
 }
 
 
@@ -55,10 +62,14 @@ function registerfunction() {
 function newregisterfunction() {
     passwords.push(Newpassword.value)
     usernames.push(Newname.value)
-    var storpasswords = [localStorage.getItem("usernames")]
-    var storusernames = [localStorage.getItem("passwords")]
+    var storpasswords = [localStorage.getItem("passwords")]
+    var storusernames = [localStorage.getItem("usernames")]
     storpasswords.push(Newpassword.value)
-    storusernames.push(Newpassword.value)
+    storusernames.push(Newname.value)
+    localStorage.setItem("usernames", storusernames)
+    localStorage.setItem("passwords", storpasswords)
+    console.log(storpasswords, storusernames)
+    console.log("hi")
     logintext.innerHTML = "You have registered, " + Newname.value
     registerPage.style.transform = "translateY(1000%)"
     openreg = true;
