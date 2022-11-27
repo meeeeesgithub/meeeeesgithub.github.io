@@ -50,7 +50,7 @@ if (i === "true") {
 var openreg = false;
 
 function registerfunction() {
-    if (openreg) {
+    if (openreg = true) {
         registerPage.style.transform = "translateY(0)"
         openreg = false;
     } else {
